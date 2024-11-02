@@ -36,7 +36,15 @@ function App() {
   const handleRemoveRepo = (id) => {
     console.log('Removendo registro', id);
 
-    // utilizar filter.
+    const isExist = repos.find(repo => repo.id === id);
+
+      if(isExist){
+        setRepos(repos.filter((repo) => repo.id !== id));
+        setCurrentRepo('')
+        return
+      }
+      alert('Repositório não encontrado')
+      
   }
 
 
